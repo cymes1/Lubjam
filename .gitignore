@@ -34,3 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+[Ii]gnore/
+[Ii]gnore.meta
+Assets/[Ii]gnore/
+Assets/[Ii]gnore.meta
