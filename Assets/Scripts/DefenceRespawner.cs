@@ -58,7 +58,7 @@ public class DefenceRespawner : MonoBehaviour
         if (antWarriorCount < antWarriorLimit && !startTimer && workerCount >= 1)
         {
             startTimer = true;
-            Instantiate(worker, new Vector3(1, 0, 0), Quaternion.identity);
+            Instantiate(worker, new Vector3(0, 0, 0), Quaternion.identity);
             antWarriorCount++;
          }
     }
@@ -68,7 +68,7 @@ public class DefenceRespawner : MonoBehaviour
         if (antWarriorCount < antWarriorLimit && !startTimer && warriorCount >= 1)
         {
             startTimer = true;
-            Instantiate(warrior, new Vector3(4, 0, 0), Quaternion.identity);
+            Instantiate(warrior, new Vector3(0, 0, 0), Quaternion.identity);
             antWarriorCount++;
         }
     }
@@ -78,7 +78,7 @@ public class DefenceRespawner : MonoBehaviour
         if (antWarriorCount < antWarriorLimit && !startTimer && knightCount >= 1)
         {
             startTimer = true;
-            Instantiate(knight, new Vector3(6, 0, 0), Quaternion.identity);
+            Instantiate(knight, new Vector3(0, 0, 0), Quaternion.identity);
             antWarriorCount++;
         }
     }
