@@ -47,4 +47,9 @@ public class GameMaster : MonoBehaviour
         set { antLimit = value; 
         Debug.Log("antLimit: " + antLimit); }
     }
+
+    public int AntCount
+    {
+        get { return workerCount + warriorCount + knightCount; }
+    }
 }

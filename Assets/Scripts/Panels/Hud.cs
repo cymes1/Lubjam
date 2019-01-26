@@ -5,11 +5,9 @@ using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
 {
+    public GameMaster gameMaster;
     private int fidingtime_number = 0;
     private int timetoend_number = 0;
-    private int feed_number = 0;
-    private int resource_number = 0;
-    private int ants_number = 0;
 
     public Text fidingtime;
     public Text timetoend;
@@ -24,10 +22,10 @@ public class Hud : MonoBehaviour
 
     void Update()
     {
-        fidingtime.text = "Fiding time: " + fidingtime_number.ToString();
+        fidingtime.text = "Feeding time: " + fidingtime_number.ToString();
         timetoend.text = "Time to end expedition: " + timetoend_number.ToString();
-        feed.text = "Feed: " + feed_number.ToString();
-        resources.text = "Resources: " + resource_number.ToString();
-        ants.text = "Ants: " + ants_number.ToString();
+        feed.text = "Food: " + gameMaster.Food;
+        resources.text = "Resources: " + gameMaster.Resource;
+        ants.text = "Ants: " + gameMaster.AntCount + " / " + gameMaster.AntLimit;
     }
 }
