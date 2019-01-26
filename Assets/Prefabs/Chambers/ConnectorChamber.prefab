@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c84193ad983df14db9c44ea21065ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 1.1
+  chambersLimit: 3
+  offset: 2.8
   direction: 1
   supplyChamberPrefab: {fileID: 623096480676611543, guid: 78f86753484b61b44ae192d259ee73ef,
     type: 3}
@@ -361,6 +362,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8009215895967011493}
+        m_MethodName: OnBuild
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -688,6 +700,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8009215895967011493}
+        m_MethodName: OnBuild
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1135,7 +1158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c84193ad983df14db9c44ea21065ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 1.1
+  chambersLimit: 3
+  offset: 2.8
   direction: 0
   supplyChamberPrefab: {fileID: 623096480676611543, guid: 78f86753484b61b44ae192d259ee73ef,
     type: 3}
@@ -1279,8 +1303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMaster: {fileID: 0}
   level: 1
-  price: 0
+  price: 10
   leftSpawnPoint: {fileID: 2412815667800400366}
   rightSpawnPoint: {fileID: 1376164396038909975}
+  unlockButton: {fileID: 1376164396218982765}
   connectorChamberPrefab: {fileID: 4837944916923173646}
   connectorChamberSpawnPoint: {fileID: 3781883902217537578}
