@@ -11,6 +11,9 @@ public class PlayerUnit : MonoBehaviour
         Waiting
     }
 
+    Animator animator;
+    int rand;
+
     public float speed = 1;
     public float health = 5f;
     public float attack = 1f;
@@ -24,8 +27,10 @@ public class PlayerUnit : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         speedPom = speed;
         state = States.Going;
+        rand = Random.Range(0, 1000);
     }
 
     private void Update()
@@ -46,15 +51,31 @@ public class PlayerUnit : MonoBehaviour
     }
     void Move()
     {
+        if (speed > 0)
+        {
+            animator.SetBool("IsIdle", false);
+            animator.SetBool("IsWalk", true);
+        }
+        else
+        {
+            
+            animator.SetBool("IsWalk", false);
+            animator.SetBool("IsIdle", true);
+        }
         transform.Translate(speed * Time.deltaTime, 0, 0);
+        
         if (transform.position.x >= antStoperan && isPlayerAnt)
         {
             speed = 0f;
+            animator.SetBool("IsWalk", false);
+            animator.SetBool("IsIdle", true);
         }
     }
     void Fight()
     {
+        animator.SetBool("IsAttack", true);
         enemyUnit.TakeDamage(attack*Time.deltaTime);
+        animator.SetBool("IsAttack", false);
     }
     void Wait()
     {
@@ -89,6 +110,14 @@ public class PlayerUnit : MonoBehaviour
         if(health-damage <= 0)
         {
             enemyUnit.state = States.Going;
+            if (rand % 2 == 1)
+            {
+                animator.SetBool("IsDead", true);
+            }
+            else
+            {
+                animator.SetBool("IsDead2", true);
+            }
             Destroy(this.gameObject);
         }
         else
