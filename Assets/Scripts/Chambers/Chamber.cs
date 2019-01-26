@@ -4,13 +4,5 @@ using UnityEngine;
 
 public class Chamber : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public GameMaster gameMaster;
 }

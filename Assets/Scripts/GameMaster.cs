@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameMaster : MonoBehaviour
+{
+    private int food;
+    private int resource;
+    private int workerCount;
+    private int warriorCount;
+    private int knightCount;
+    private int antLimit;
+
+    public int Food
+    {
+        get { return food;  }
+        set { food = value;
+        Debug.Log("food: " + food); }
+    }
+    public int Resource
+    {
+        get { return resource;  }
+        set { resource = value;
+        Debug.Log("resource: " + resource); }
+    }
+    public int WorkerCount
+    {
+        get { return workerCount;  }
+        set { workerCount = value;
+        Debug.Log("workerCount: " + workerCount); }
+    }
+    public int WarriorCount
+    {
+        get { return warriorCount;  }
+        set { warriorCount = value; 
+        Debug.Log("warriorCount: " + warriorCount); }
+    }
+    public int KnightCount
+    {
+        get { return knightCount;  }
+        set { knightCount = value; 
+        Debug.Log("knightCount: " + knightCount); }
+    }
+    public int AntLimit
+    {
+        get { return antLimit;  }
+        set { antLimit = value; 
+        Debug.Log("antLimit: " + antLimit); }
+    }
+}
