@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainChamber : Chamber
+public class MainChamber : SupplyChamber
 {
-    public int supplyAmount;
     public int workerPrice;
     public int warriorPrice;
     public int knightPrice;

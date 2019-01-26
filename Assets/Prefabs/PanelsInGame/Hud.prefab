@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4069617642764819404}
   - component: {fileID: 4069617642764819405}
   m_Layer: 5
-  m_Name: FeadingTime
+  m_Name: FeedingTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,11 +539,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMaster: {fileID: 0}
-  fidingtime: {fileID: 4069617642764819405}
+  feedingtime: {fileID: 4069617642764819405}
   timetoend: {fileID: 4069617643180252433}
   feed: {fileID: 4069617642680464678}
   resources: {fileID: 4069617642934183100}
   ants: {fileID: 4069617643545856133}
+  fullFeedingTime: 0
 --- !u!1 &4069617643180252435
 GameObject:
   m_ObjectHideFlags: 0

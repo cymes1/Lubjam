@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConnectorChamber : Chamber
+public class ConnectorChamber : SupplyChamber
 {
     public int level;
     public int price;
@@ -16,17 +16,24 @@ public class ConnectorChamber : Chamber
     private int leftCount;
     private int rightCount;
 
+    void Start()
+    {
+        gameMaster.AntLimit += supplyAmount;
+    }
+
     public void Unlock()
     {
         if(gameMaster.Resource >= price)
         {
             gameMaster.Resource -= price;
+            Instantiate(connectorChamberPrefab, connectorChamberSpawnPoint.position, Quaternion.identity);
+
+            
             isUnlocked = true;
             leftSpawnPoint.SetActive(true);
             rightSpawnPoint.SetActive(true);
             Destroy(unlockButton);
 
-            Instantiate(connectorChamberPrefab, connectorChamberSpawnPoint.position, Quaternion.identity);
         }
     }
 

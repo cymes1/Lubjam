@@ -1302,6 +1302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMaster: {fileID: 0}
+  supplyAmount: 10
   level: 1
   price: 10
   leftSpawnPoint: {fileID: 2412815667800400366}

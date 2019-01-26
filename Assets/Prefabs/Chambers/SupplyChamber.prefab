@@ -104,4 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8065613a51417f40826630173406c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMaster: {fileID: 305740449581075389, guid: 1d739164fb63a634b869c4996d8dd93e,
+    type: 3}
   supplyAmount: 10
