@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
-    private int food;
-    private int resource;
+    private int food = 1000;
+    private int resource = 1000;
     private int workerCount;
     private int warriorCount;
     private int knightCount;

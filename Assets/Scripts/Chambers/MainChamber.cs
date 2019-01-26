@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainChamber : Chamber
+public class MainChamber : SupplyChamber
 {
-    public int supplyAmount;
     public int workerPrice;
     public int warriorPrice;
     public int knightPrice;
@@ -16,19 +15,52 @@ public class MainChamber : Chamber
 
     public void OnWorkerButton()
     {
-        if(gameMaster.Food >= workerPrice)
-            gameMaster.WorkerCount++;
+        if(gameMaster.AntCount >= gameMaster.AntLimit)
+        {
+            Debug.Log("You must construct additional pylons");
+            return;
+        }
+        if(gameMaster.Food < workerPrice)
+        {
+            Debug.Log("Not enough minerals");
+            return;
+        }
+
+        gameMaster.Resource -= workerPrice;
+        gameMaster.WorkerCount++;
     }
 
     public void OnWarriorButton()
     {
-        if(gameMaster.Food >= warriorPrice)
-            gameMaster.WarriorCount++;
+        if(gameMaster.AntCount >= gameMaster.AntLimit)
+        {
+            Debug.Log("You must construct additional pylons");
+            return;
+        }
+        if(gameMaster.Food < warriorPrice)
+        {
+            Debug.Log("Not enough minerals");
+            return;
+        }
+
+        gameMaster.Resource -= warriorPrice;
+        gameMaster.WarriorCount++;
     }
 
     public void OnKnightButton()
     {
-        if(gameMaster.Food >= knightPrice)
-            gameMaster.KnightCount++;
+        if(gameMaster.AntCount >= gameMaster.AntLimit)
+        {
+            Debug.Log("You must construct additional pylons");
+            return;
+        }
+        if(gameMaster.Food < knightPrice)
+        {
+            Debug.Log("Not enough minerals");
+            return;
+        }
+        
+        gameMaster.Resource -= knightPrice;
+        gameMaster.KnightCount++;
     }
 }

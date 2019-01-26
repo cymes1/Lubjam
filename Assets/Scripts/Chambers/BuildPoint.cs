@@ -7,9 +7,10 @@ public class BuildPoint : MonoBehaviour
     public enum Direction
     {
         LEFT,
-        RIGHT
+        RIGHT  
     }
 
+    public int chambersLimit;
     public float offset = 1.1f;
     public Direction direction;
     public GameObject supplyChamberPrefab;
