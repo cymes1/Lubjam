@@ -9,6 +9,7 @@ TagManager:
   - EnemyUnit
   - AllyUnit
   - Friend
+  - AntStoperan
   layers:
   - Default
   - TransparentFX

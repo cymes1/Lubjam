@@ -11,12 +11,14 @@ public class PlayerUnit : MonoBehaviour
         Waiting
     }
 
-    public int speed = 1;
+    public float speed = 1;
     public float health = 5f;
     public float attack = 1f;
-    public string localTag = "elo";
+    public string localTag;
+    public float antStoperan = 5f;
+    public bool isPlayerAnt = false;
 
-    private int speedPom;
+    private float speedPom;
     public States state;
     public PlayerUnit enemyUnit;
 
@@ -45,6 +47,10 @@ public class PlayerUnit : MonoBehaviour
     void Move()
     {
         transform.Translate(speed * Time.deltaTime, 0, 0);
+        if (transform.position.x >= antStoperan && isPlayerAnt)
+        {
+            speed = 0f;
+        }
     }
     void Fight()
     {
@@ -65,7 +71,7 @@ public class PlayerUnit : MonoBehaviour
         {
             state = States.Fighting;
             enemyUnit = other.transform.parent.GetComponent<PlayerUnit>();
-        }
+        }       
     }
     private void OnTriggerExit(Collider other)
     {
