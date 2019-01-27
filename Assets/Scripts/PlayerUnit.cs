@@ -48,11 +48,10 @@ public class PlayerUnit : MonoBehaviour
                 Wait();
                 break;
         }
-        
     }
     void Move()
     {
-        animator.SetBool("isAttack", false);
+        animator.SetBool("IsAttack", false);
         animator.SetBool("IsIdle", false);
         animator.SetBool("IsWalk", true);
         transform.Translate(0, 0, speed * Time.deltaTime);

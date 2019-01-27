@@ -10,6 +10,9 @@ TagManager:
   - AllyUnit
   - Friend
   - AntStoperan
+  - ExpeditionTarget
+  - HouseEntrance
+  - Destroy
   layers:
   - Default
   - TransparentFX

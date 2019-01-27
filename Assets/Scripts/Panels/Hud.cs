@@ -11,7 +11,6 @@ public class Hud : MonoBehaviour
 
     public Text feedingtime;
     public Text timetoend;
-    public Text feed;
     public Text resources;
     public Text ants;
 
@@ -30,7 +29,6 @@ public class Hud : MonoBehaviour
 
         feedingtime.text = Mathf.Round(elapsedTime).ToString();
         timetoend.text = timetoend_number.ToString();
-        feed.text = gameMaster.Food.ToString();
         resources.text =gameMaster.Resource.ToString();
         ants.text =gameMaster.AntCount + " / " + gameMaster.AntLimit;
 

@@ -14,6 +14,7 @@ public class Expedition : MonoBehaviour
     }
 
     public float speed;
+    public GameObject antPrefab;
 
     private LootType lootType;
     private States state;
@@ -30,6 +31,10 @@ public class Expedition : MonoBehaviour
         this.gameMaster = gameMaster;
 
         lootAmount = antCount * Random.Range(1, 4);
+        Animator animator = antPrefab.GetComponent<Animator>();
+        animator.SetBool("IsWalk", true);
+        animator.SetBool("IsIdle", false);
+        animator.SetBool("IsAttack", false);
     }
 
     void Update()
@@ -52,7 +57,7 @@ public class Expedition : MonoBehaviour
 
     private void GoOnExpedition()
     {
-        transform.Translate(-speed * Time.deltaTime, 0, 0);
+        transform.Translate(speed * Time.deltaTime, 0, 0);
     }
 
     private void LookForResources()
@@ -65,7 +70,7 @@ public class Expedition : MonoBehaviour
 
     private void ReturnFromExpedition()
     {
-        transform.Translate(speed * Time.deltaTime, 0, 0);
+        transform.Translate(-speed * Time.deltaTime, 0, 0);
     }
 
     void OnTriggerEnter(Collider other)
@@ -82,6 +87,7 @@ public class Expedition : MonoBehaviour
             gameMaster.Food += lootAmount;
         else
             gameMaster.Resource += lootAmount;
+        gameMaster.WorkerCount += antCount;
         Destroy(gameObject);
     }
 
