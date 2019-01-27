@@ -28,11 +28,11 @@ public class Hud : MonoBehaviour
         if(elapsedTime < 0)
             elapsedTime = 0;
 
-        feedingtime.text = "Feeding time: " + Mathf.Round(elapsedTime).ToString();
-        timetoend.text = "Time to end expedition: " + timetoend_number.ToString();
-        feed.text = "Food: " + gameMaster.Food;
-        resources.text = "Resources: " + gameMaster.Resource;
-        ants.text = "Ants: " + gameMaster.AntCount + " / " + gameMaster.AntLimit;
+        feedingtime.text = Mathf.Round(elapsedTime).ToString();
+        timetoend.text = timetoend_number.ToString();
+        feed.text = gameMaster.Food.ToString();
+        resources.text =gameMaster.Resource.ToString();
+        ants.text =gameMaster.AntCount + " / " + gameMaster.AntLimit;
 
         if(elapsedTime == 0)
             FeedAnts();
