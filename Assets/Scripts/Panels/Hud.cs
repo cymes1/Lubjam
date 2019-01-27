@@ -22,6 +22,11 @@ public class Hud : MonoBehaviour
         elapsedTime = fullFeedingTime;
     }
 
+    public float getelapsedtime()
+    {
+        return elapsedTime;
+    }
+
     void Update()
     {
         elapsedTime -= Time.deltaTime;
