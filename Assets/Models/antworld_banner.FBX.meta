@@ -9,7 +9,13 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Box008
-  externalObjects: {}
+    4300002: Box009
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: main_color
+    second: {fileID: 2100000, guid: ba35f2f64d2ab5749a0049c3a1e7dc1b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
