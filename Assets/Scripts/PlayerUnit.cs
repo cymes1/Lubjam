@@ -51,18 +51,10 @@ public class PlayerUnit : MonoBehaviour
     }
     void Move()
     {
-        if (speed > 0)
-        {
-            animator.SetBool("IsIdle", false);
-            animator.SetBool("IsWalk", true);
-        }
-        else
-        {
-            
-            animator.SetBool("IsWalk", false);
-            animator.SetBool("IsIdle", true);
-        }
-        transform.Translate(speed * Time.deltaTime, 0, 0);
+        animator.SetBool("isAttack", false);
+        animator.SetBool("IsIdle", false);
+        animator.SetBool("IsWalk", true);
+        transform.Translate(0, 0, speed * Time.deltaTime);
         
         if (transform.position.x >= antStoperan && isPlayerAnt)
         {
@@ -73,13 +65,15 @@ public class PlayerUnit : MonoBehaviour
     }
     void Fight()
     {
+        speed = 0f;
+
         animator.SetBool("IsAttack", true);
         enemyUnit.TakeDamage(attack*Time.deltaTime);
-        animator.SetBool("IsAttack", false);
     }
     void Wait()
     {
-
+        animator.SetBool("IsWalk", false);
+        animator.SetBool("IsIdle", true);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 474461211}
   - component: {fileID: 474461210}
   m_Layer: 0
-  m_Name: Ant_warrior
+  m_Name: Enemy_Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,12 +706,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb285ec4280befb48859266c236ab212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
   health: 5
   attack: 1
-  localTag: Friend
+  localTag: Enemy
   antStoperan: 40
-  isPlayerAnt: 1
+  isPlayerAnt: 0
   state: 0
   enemyUnit: {fileID: 0}
 --- !u!1 &505467245
@@ -2920,7 +2920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4710268183810969176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.949, z: -0.099}
+  m_LocalPosition: {x: 0, y: 0.949, z: -0.429}
   m_LocalScale: {x: 1, y: 1.8, z: 0.05}
   m_Children: []
   m_Father: {fileID: 474461214}
@@ -2998,7 +2998,7 @@ GameObject:
   - component: {fileID: 1219008863249748897}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Friend
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3011,7 +3011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6618479724794551933}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9490001, z: 0.089}
+  m_LocalPosition: {x: 0, y: 0.9490001, z: 0.376}
   m_LocalScale: {x: 0.9999998, y: 1.8, z: 0.049999993}
   m_Children: []
   m_Father: {fileID: 474461214}
