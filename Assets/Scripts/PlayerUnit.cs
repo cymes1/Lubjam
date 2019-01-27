@@ -12,7 +12,7 @@ public class PlayerUnit : MonoBehaviour
     }
 
     public Animator animator;
-    public GameObject shootAfterDead,shootAfterDead2;
+    //public GameObject shootAfterDead,shootAfterDead2;
     int rand;
 
     public float speed = 1;
@@ -69,7 +69,7 @@ public class PlayerUnit : MonoBehaviour
     }
     void Fight()
     {
-        animator.Play("Attack");
+        //animator.Play("Attack");
         animator.SetBool("IsAttack", true);
         enemyUnit.TakeDamage(attack*Time.deltaTime);
     }
@@ -87,11 +87,17 @@ public class PlayerUnit : MonoBehaviour
         {
             state = States.Waiting;
         }
+        else if (other.tag == "Destroy")
+        {
+            Destroy(this.gameObject);
+        }
         else if (other.tag != localTag)
         {
             state = States.Fighting;
             enemyUnit = other.transform.parent.GetComponent<PlayerUnit>();
-        }       
+        } 
+       
+              
     }
     private void OnTriggerExit(Collider other)
     {
@@ -108,7 +114,7 @@ public class PlayerUnit : MonoBehaviour
     {
         if(health-damage <= 0)
         {
-            enemyUnit.state = States.Going;
+            
             if (rand % 2 == 1)
             {
                 animator.SetBool("IsDead", true);
@@ -118,8 +124,9 @@ public class PlayerUnit : MonoBehaviour
                 animator.SetBool("IsDead2", true);
             }
             Destroy(this.gameObject);
-            Instantiate(shootAfterDead, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            Instantiate(shootAfterDead2, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            enemyUnit.state = States.Going;
+            // Instantiate(shootAfterDead, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            //Instantiate(shootAfterDead2, this.gameObject.transform.position, this.gameObject.transform.rotation);
         }
         else
         {
