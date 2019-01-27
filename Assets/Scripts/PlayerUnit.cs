@@ -119,40 +119,39 @@ public class PlayerUnit : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(health-damage <= 0)
+        if(this.health-damage <= 0 && isPlayerAnt)
+        {                     
+            if(unityPlayerType == 1)
+            {
+                gameMaster.WorkerCount=-1;
+            }
+            else if(unityPlayerType == 2)
+            {
+                gameMaster.WarriorCount-=1;
+            }
+            else// if (unityPlayerType == 3)
+            {
+                gameMaster.KnightCount-=1;
+            }
+            enemyUnit.state = States.Going;
+           // animator.SetBool("IsDead2", true);
+            Destroy(this.gameObject);
+
+        }
+        else if(health - damage <= 0)
         {
-            
             if (rand % 2 == 1)
             {
-                animator.SetBool("IsDead", true);
+               // animator.SetBool("IsDead", true);
+                enemyUnit.state = States.Going;
+                Destroy(this.gameObject);
             }
             else
             {
-                animator.SetBool("IsDead2", true);
-            }
-            if(isPlayerAnt && unityPlayerType == 1)
-            {
-                gameMaster.WorkerCount--;
+              //  animator.SetBool("IsDead2", true);
                 enemyUnit.state = States.Going;
                 Destroy(this.gameObject);
             }
-            else if(isPlayerAnt && unityPlayerType == 2)
-            {
-                gameMaster.WarriorCount--;
-                enemyUnit.state = States.Going;
-                Destroy(this.gameObject);
-            }
-            else if (isPlayerAnt && unityPlayerType == 3)
-            {
-                gameMaster.KnightCount--;
-                enemyUnit.state = States.Going;
-                Destroy(this.gameObject);
-            }
-            enemyUnit.state = States.Going;
-            Destroy(this.gameObject);
-            
-            //Instantiate(shootAfterDead, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            //Instantiate(shootAfterDead2, this.gameObject.transform.position, this.gameObject.transform.rotation);
         }
         else
         {

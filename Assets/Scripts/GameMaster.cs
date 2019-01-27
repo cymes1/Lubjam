@@ -11,6 +11,11 @@ public class GameMaster : MonoBehaviour
     private int knightCount;
     private int antLimit;
 
+    private void Start()
+    {
+        food = 1000;    resource = 1000; 
+    }
+
     public int Food
     {
         get { return food;  }
