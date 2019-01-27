@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
 
     public void retMainMenu()
     {
+        Debug.Log("Exit eloelo");
         SceneManager.LoadScene(0);
     }
 

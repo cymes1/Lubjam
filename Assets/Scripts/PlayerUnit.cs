@@ -11,7 +11,8 @@ public class PlayerUnit : MonoBehaviour
         Waiting
     }
 
-    Animator animator;
+    public Animator animator;
+    public GameObject shootAfterDead,shootAfterDead2;
     int rand;
 
     public float speed = 1;
@@ -27,7 +28,7 @@ public class PlayerUnit : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+       // animator = GetComponent<Animator>();
         speedPom = speed;
         state = States.Going;
         rand = Random.Range(0, 1000);
@@ -55,25 +56,29 @@ public class PlayerUnit : MonoBehaviour
         animator.SetBool("IsIdle", false);
         animator.SetBool("IsWalk", true);
         transform.Translate(0, 0, speed * Time.deltaTime);
-        
+        //animator.Play("Walk");
+
         if (transform.position.x >= antStoperan && isPlayerAnt)
         {
-            speed = 0f;
+            state = States.Waiting;
+            //animator.Play("Orc_idle");
             animator.SetBool("IsWalk", false);
             animator.SetBool("IsIdle", true);
+            
         }
     }
     void Fight()
     {
-        speed = 0f;
-
+        animator.Play("Attack");
         animator.SetBool("IsAttack", true);
         enemyUnit.TakeDamage(attack*Time.deltaTime);
     }
     void Wait()
     {
+        
         animator.SetBool("IsWalk", false);
         animator.SetBool("IsIdle", true);
+        animator.SetBool("IsAttack", false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -113,6 +118,8 @@ public class PlayerUnit : MonoBehaviour
                 animator.SetBool("IsDead2", true);
             }
             Destroy(this.gameObject);
+            Instantiate(shootAfterDead, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            Instantiate(shootAfterDead2, this.gameObject.transform.position, this.gameObject.transform.rotation);
         }
         else
         {
