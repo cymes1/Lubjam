@@ -1309,16 +1309,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5177103756158998678}
-  shootAfterDead: {fileID: 4759316488598516752, guid: 00b57f51fe9ebd34aa2bb29558c9ae44,
-    type: 3}
-  shootAfterDead2: {fileID: 4759316488598516752, guid: 9f8af7a2d10f0c04db27da2fb4a662dc,
-    type: 3}
+  gameMaster: {fileID: 0}
   speed: 2
   health: 5
   attack: 1
   localTag: Friend
   antStoperan: 40
   isPlayerAnt: 1
+  unityPlayerType: 1
   state: 0
   enemyUnit: {fileID: 0}
 --- !u!54 &2924144874549705933
@@ -2794,14 +2792,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  shootAfterDead: {fileID: 0}
-  shootAfterDead2: {fileID: 0}
+  gameMaster: {fileID: 0}
   speed: 1
   health: 5
   attack: 1
   localTag: Friend
   antStoperan: 40
   isPlayerAnt: 1
+  unityPlayerType: 0
   state: 0
   enemyUnit: {fileID: 0}
 --- !u!1 &8845175375462182079

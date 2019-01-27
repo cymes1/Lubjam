@@ -13,6 +13,7 @@ public class PlayerUnit : MonoBehaviour
 
     public Animator animator;
     //public GameObject shootAfterDead,shootAfterDead2;
+    public GameMaster gameMaster;
     int rand;
 
     public float speed = 1;
@@ -21,6 +22,7 @@ public class PlayerUnit : MonoBehaviour
     public string localTag;
     public float antStoperan = 5f;
     public bool isPlayerAnt = false;
+    public int unityPlayerType;
 
     private float speedPom;
     public States state;
@@ -32,6 +34,10 @@ public class PlayerUnit : MonoBehaviour
         speedPom = speed;
         state = States.Going;
         rand = Random.Range(0, 1000);
+    }
+    public void Init(GameMaster master)
+    {
+        gameMaster = master;
     }
 
     private void Update()
@@ -88,7 +94,9 @@ public class PlayerUnit : MonoBehaviour
         }
         else if (other.tag == "Destroy")
         {
-            Destroy(this.gameObject);
+            Loting();
+            Destroy(this.gameObject,0.5f);
+            
         }
         else if (other.tag != localTag)
         {
@@ -111,26 +119,56 @@ public class PlayerUnit : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(health-damage <= 0)
+        if(this.health-damage <= 0 && isPlayerAnt)
+        {                     
+            if(unityPlayerType == 1)
+            {
+                gameMaster.WorkerCount=-1;
+            }
+            else if(unityPlayerType == 2)
+            {
+                gameMaster.WarriorCount-=1;
+            }
+            else// if (unityPlayerType == 3)
+            {
+                gameMaster.KnightCount-=1;
+            }
+            enemyUnit.state = States.Going;
+           // animator.SetBool("IsDead2", true);
+            Destroy(this.gameObject);
+
+        }
+        else if(health - damage <= 0)
         {
-            
             if (rand % 2 == 1)
             {
-                animator.SetBool("IsDead", true);
+               // animator.SetBool("IsDead", true);
+                enemyUnit.state = States.Going;
+                Destroy(this.gameObject);
             }
             else
             {
-                animator.SetBool("IsDead2", true);
+              //  animator.SetBool("IsDead2", true);
+                enemyUnit.state = States.Going;
+                Destroy(this.gameObject);
             }
-            Destroy(this.gameObject);
-            enemyUnit.state = States.Going;
-            // Instantiate(shootAfterDead, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            //Instantiate(shootAfterDead2, this.gameObject.transform.position, this.gameObject.transform.rotation);
         }
         else
         {
             health -= damage;
         }
+    }
+
+    public void Loting()
+    {
+        Debug.Log("Pladruje"+ " " + gameMaster.WorkerCount + " " + gameMaster.Resource + " " + gameMaster.Food);
+        float random = Random.Range(3, 15);
+        gameMaster.WorkerCount = (int)(gameMaster.WorkerCount - (gameMaster.WorkerCount*(random/100)));
+        random = Random.Range(3, 15);
+        gameMaster.Resource = (int)(gameMaster.Resource - (gameMaster.Resource * (random / 100)));
+        random = Random.Range(3, 15);
+        gameMaster.Food = (int)(gameMaster.Food - (gameMaster.Food * (random / 100)));
+        Debug.Log("Uciekam" + " " + gameMaster.WorkerCount + " " + gameMaster.Resource + " " + gameMaster.Food);
     }
 
 }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class Clock : MonoBehaviour
 {
 
-    public int speed = 1;
+    public float speed = 0.01f;
     public int time_ants_return=10;
+    public Hud hud;
     
     public GameObject arrow;
     public GameObject anticon;
@@ -22,8 +23,8 @@ public class Clock : MonoBehaviour
     {
         arrow.transform.RotateAround(arrow.transform.position, Vector3.back, speed * Time.deltaTime);
 
-        if(time_ants_return>2) anticon.SetActive(false);
-        else if(time_ants_return<=2) anticon.SetActive(true);
+       // if(time_ants_return>2) anticon.SetActive(false);
+       // else if(time_ants_return<=2) anticon.SetActive(true);
     }
 
 
