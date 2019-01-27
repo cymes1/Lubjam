@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
@@ -10,10 +11,20 @@ public class GameMaster : MonoBehaviour
     private int warriorCount;
     private int knightCount;
     private int antLimit;
+    public Image deathScreen;
 
     private void Start()
     {
-        food = 1000;    resource = 1000; 
+        food = 1000;    resource = 1000;
+        deathScreen.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(food<=0 && AntCount<=0)
+        {
+            deathScreen.enabled = true;
+        }
     }
 
     public int Food

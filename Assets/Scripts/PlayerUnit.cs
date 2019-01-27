@@ -74,7 +74,7 @@ public class PlayerUnit : MonoBehaviour
     }
     void Fight()
     {
-        //animator.Play("Attack");
+        animator.Play("Attack");
         animator.SetBool("IsAttack", true);
         enemyUnit.TakeDamage(attack*Time.deltaTime);
     }
@@ -119,26 +119,29 @@ public class PlayerUnit : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(this.health-damage <= 0 && isPlayerAnt)
-        {                     
-            if(unityPlayerType == 1)
+        health -= damage;
+
+        
+    
+        if (health <= 0 && isPlayerAnt)
+        {
+            if (unityPlayerType == 1)
             {
-                gameMaster.WorkerCount=-1;
+                gameMaster.WorkerCount--;
             }
             else if(unityPlayerType == 2)
             {
-                gameMaster.WarriorCount-=1;
+                gameMaster.WarriorCount--;
             }
             else// if (unityPlayerType == 3)
             {
-                gameMaster.KnightCount-=1;
+                gameMaster.KnightCount--;
             }
             enemyUnit.state = States.Going;
            // animator.SetBool("IsDead2", true);
             Destroy(this.gameObject);
-
         }
-        else if(health - damage <= 0)
+        else if(health <= 0)
         {
             if (rand % 2 == 1)
             {
@@ -152,10 +155,6 @@ public class PlayerUnit : MonoBehaviour
                 enemyUnit.state = States.Going;
                 Destroy(this.gameObject);
             }
-        }
-        else
-        {
-            health -= damage;
         }
     }
 
