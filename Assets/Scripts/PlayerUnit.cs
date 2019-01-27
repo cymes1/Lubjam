@@ -87,11 +87,17 @@ public class PlayerUnit : MonoBehaviour
         {
             state = States.Waiting;
         }
+        else if (other.tag == "Destroy")
+        {
+            Destroy(this.gameObject);
+        }
         else if (other.tag != localTag)
         {
             state = States.Fighting;
             enemyUnit = other.transform.parent.GetComponent<PlayerUnit>();
-        }       
+        } 
+       
+              
     }
     private void OnTriggerExit(Collider other)
     {
