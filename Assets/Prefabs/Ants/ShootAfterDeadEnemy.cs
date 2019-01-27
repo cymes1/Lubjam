@@ -15,7 +15,7 @@ public class ShootAfterDeadEnemy : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         
-            Destroy(this.gameObject);
+            Destroy(this.gameObject,1f);
         
     }
 }
