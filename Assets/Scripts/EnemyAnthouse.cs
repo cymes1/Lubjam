@@ -31,6 +31,7 @@ public class EnemyAnthouse : MonoBehaviour
     private void CreateWave()
     {
         timeToWave = GenerateTimeToWave();
-        Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoint.position+new Vector3(0,2.5f,0), spawnPoint.rotation);
+        PlayerUnit unit = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoint.position+new Vector3(0,2.5f,0), spawnPoint.rotation).GetComponent<PlayerUnit>();
+        unit.Init(GetComponent<GameMaster>());
     }
 }
