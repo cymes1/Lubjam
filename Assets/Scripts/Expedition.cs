@@ -87,6 +87,7 @@ public class Expedition : MonoBehaviour
             gameMaster.Food += lootAmount;
         else
             gameMaster.Resource += lootAmount;
+        gameMaster.WorkerCount += antCount;
         Destroy(gameObject);
     }
 

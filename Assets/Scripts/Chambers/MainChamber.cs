@@ -7,7 +7,6 @@ public class MainChamber : SupplyChamber
     public int workerPrice;
     public int warriorPrice;
     public int knightPrice;
-    
 
     void Start()
     {

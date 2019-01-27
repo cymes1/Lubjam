@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.22
+  antPrefab: {fileID: 5761043947515470641, guid: 2af9ab989aafce34c8d1df0c1d2af382,
+    type: 3}
 --- !u!65 &2733339039625904190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106,22 +108,22 @@ PrefabInstance:
     - target: {fileID: 4603490089811195373, guid: 2af9ab989aafce34c8d1df0c1d2af382,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4603490089811195373, guid: 2af9ab989aafce34c8d1df0c1d2af382,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4603490089811195373, guid: 2af9ab989aafce34c8d1df0c1d2af382,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4603490089811195373, guid: 2af9ab989aafce34c8d1df0c1d2af382,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4603490089811195373, guid: 2af9ab989aafce34c8d1df0c1d2af382,
         type: 3}
@@ -141,6 +143,16 @@ PrefabInstance:
     - target: {fileID: 4603490089811195373, guid: 2af9ab989aafce34c8d1df0c1d2af382,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761043947515470642, guid: 2af9ab989aafce34c8d1df0c1d2af382,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 919162272877277542}
+    - target: {fileID: 5761043947515470642, guid: 2af9ab989aafce34c8d1df0c1d2af382,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -148,6 +160,12 @@ PrefabInstance:
 --- !u!4 &5514875935379982778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4603490089811195373, guid: 2af9ab989aafce34c8d1df0c1d2af382,
+    type: 3}
+  m_PrefabInstance: {fileID: 8316503269209193559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &919162272877277542 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9199625465526799665, guid: 2af9ab989aafce34c8d1df0c1d2af382,
     type: 3}
   m_PrefabInstance: {fileID: 8316503269209193559}
   m_PrefabAsset: {fileID: 0}
