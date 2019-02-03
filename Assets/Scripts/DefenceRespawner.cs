@@ -8,17 +8,15 @@ public class DefenceRespawner : MonoBehaviour
                       warrior,
                       knight,
                       gameMaster;
+    public GameMaster master;
     public Transform warriorSpawnPoint;
     
     public int antWarriorLimit = 6;
     public float startTimeToResp = 0f;
     public float finishTimeToResp = 1f;
 
-    private int antWarriorCount=0;
+    public int antWarriorCount=0;
     private bool startTimer = false;
-    private int workerCount;
-    private int warriorCount;
-    private int knightCount;
 
     public int GetAntWorriorCount()
     {
@@ -34,14 +32,11 @@ public class DefenceRespawner : MonoBehaviour
     {
         antWarriorCount = 0;
         startTimer = false;
-        
+        master = gameMaster.GetComponent<GameMaster>();
     }
 
     private void Update()
     {
-        workerCount = gameMaster.GetComponent<GameMaster>().WorkerCount;
-        warriorCount = gameMaster.GetComponent<GameMaster>().WarriorCount;
-        knightCount = gameMaster.GetComponent<GameMaster>().KnightCount;
         //Debug.Log(workerCount + " " + warriorCount + " " + knightCount);
         if (startTimer)
         {
@@ -56,33 +51,33 @@ public class DefenceRespawner : MonoBehaviour
 
     public void WorkerRespawn()
     {
-        if (antWarriorCount < antWarriorLimit && !startTimer && workerCount >= 1)
+        if (antWarriorCount < antWarriorLimit && !startTimer && master.WorkerCount >= 1)
         {
             startTimer = true;
             PlayerUnit unit = Instantiate(worker, warriorSpawnPoint.position + new Vector3(0, 2.5f, 0), warriorSpawnPoint.rotation).GetComponent<PlayerUnit>();
-            unit.Init(gameMaster.GetComponent<GameMaster>());
+            unit.Init(this.master);
             antWarriorCount++;
          }
     }
 
     public void WarriorRespawn()
     {
-        if (antWarriorCount < antWarriorLimit && !startTimer && warriorCount >= 1)
+        if (antWarriorCount < antWarriorLimit && !startTimer && master.WarriorCount >= 1)
         {
             startTimer = true;
             PlayerUnit unit = Instantiate(warrior, warriorSpawnPoint.position + new Vector3(0, 2.5f, 0), warriorSpawnPoint.rotation).GetComponent<PlayerUnit>();
-            unit.Init(gameMaster.GetComponent<GameMaster>());
+            unit.Init(this, master);
             antWarriorCount++;
         }
     }
 
     public void KnightRespawn()
     {
-        if (antWarriorCount < antWarriorLimit && !startTimer && knightCount >= 1)
+        if (antWarriorCount < antWarriorLimit && !startTimer && master.KnightCount >= 1)
         {
             startTimer = true;
             PlayerUnit unit = Instantiate(knight, warriorSpawnPoint.position + new Vector3(0, 2.5f, 0), warriorSpawnPoint.rotation).GetComponent<PlayerUnit>();
-            unit.Init(gameMaster.GetComponent<GameMaster>());
+            unit.Init(this, master);
             antWarriorCount++;
         }
     }

@@ -62,10 +62,7 @@ public class Expedition : MonoBehaviour
 
     private void LookForResources()
     {
-        timeToStop -= Time.deltaTime;
-
-        if(timeToStop < 0)
-            state = States.ReturningFromExpedition;
+        ReturnLoot();
     }
 
     private void ReturnFromExpedition()
@@ -83,10 +80,19 @@ public class Expedition : MonoBehaviour
 
     private void ReturnLoot()
     {
-        if(lootType == LootType.Food)
+        if (lootType == LootType.Food)
+        {
+            Debug.Log("food: " + gameMaster.Food);
             gameMaster.Food += lootAmount;
+            Debug.Log("food: " + gameMaster.Food);
+        }
         else
+        {
+            Debug.Log("resource: " + gameMaster.Resource);
             gameMaster.Resource += lootAmount;
+            Debug.Log("resource: " + gameMaster.Resource);
+        }
+            
         gameMaster.WorkerCount += antCount;
         Destroy(gameObject);
     }

@@ -11,19 +11,19 @@ public class GameMaster : MonoBehaviour
     private int warriorCount;
     private int knightCount;
     private int antLimit;
-    public Image deathScreen;
+    public GameObject deathScreen;
 
     private void Start()
     {
         food = 1000;    resource = 1000;
-        deathScreen.enabled = false;
+        deathScreen.SetActive(false);
     }
 
     private void Update()
     {
         if(food<=0 && AntCount<=0)
         {
-            deathScreen.enabled = true;
+            deathScreen.SetActive(true);
         }
     }
 

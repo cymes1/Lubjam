@@ -26,7 +26,7 @@ public class MainChamber : SupplyChamber
             return;
         }
 
-        gameMaster.Resource -= workerPrice;
+        gameMaster.Food -= workerPrice;
         gameMaster.WorkerCount++;
     }
 
@@ -43,7 +43,7 @@ public class MainChamber : SupplyChamber
             return;
         }
 
-        gameMaster.Resource -= warriorPrice;
+        gameMaster.Food -= warriorPrice;
         gameMaster.WarriorCount++;
     }
 
@@ -60,7 +60,7 @@ public class MainChamber : SupplyChamber
             return;
         }
         
-        gameMaster.Resource -= knightPrice;
+        gameMaster.Food -= knightPrice;
         gameMaster.KnightCount++;
     }
 }

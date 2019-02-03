@@ -462,7 +462,6 @@ GameObject:
   - component: {fileID: 1002251719376944722}
   - component: {fileID: 1002251719376944723}
   - component: {fileID: 1002251719376944732}
-  - component: {fileID: 1002251719376944733}
   m_Layer: 5
   m_Name: ExpeditionChamberCanvas (4)
   m_TagString: Untagged
@@ -550,20 +549,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1002251719376944733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002251719376944735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc82f38e915f24a4d8b57cadf326a588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameMaster: {fileID: 0}
-  supplyAmount: 10
-  workerPrice: 5
-  warriorPrice: 10
-  knightPrice: 15

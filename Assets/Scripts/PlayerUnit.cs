@@ -14,6 +14,7 @@ public class PlayerUnit : MonoBehaviour
     public Animator animator;
     //public GameObject shootAfterDead,shootAfterDead2;
     public GameMaster gameMaster;
+    public DefenceRespawner spawner;
     int rand;
 
     public float speed = 1;
@@ -37,6 +38,12 @@ public class PlayerUnit : MonoBehaviour
     }
     public void Init(GameMaster master)
     {
+        gameMaster = master;
+    }
+
+    public void Init(DefenceRespawner spawner, GameMaster master)
+    {
+        this.spawner = spawner;
         gameMaster = master;
     }
 
@@ -138,7 +145,8 @@ public class PlayerUnit : MonoBehaviour
                 gameMaster.KnightCount--;
             }
             enemyUnit.state = States.Going;
-           // animator.SetBool("IsDead2", true);
+            // animator.SetBool("IsDead2", true);
+            spawner.antWarriorCount--;
             Destroy(this.gameObject);
         }
         else if(health <= 0)

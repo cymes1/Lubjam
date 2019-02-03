@@ -13,6 +13,7 @@ public class Chaft : MonoBehaviour
         if(gameMaster.Resource >= price)
         {
             gameMaster.Resource -= price;
+            gameMaster.AntLimit += 10;
             GetComponent<MeshRenderer>().enabled = false;
             canvas.SetActive(false);
         }

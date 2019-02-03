@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ExpeditionChamber : Chamber
 {
-    public GameObject expeditionDialog;
+    public GameObject expeditionPrefab;
+    public Transform expeditionSpawnPoint;
 
     public void OnStartExpeditionButton()
     {
-        expeditionDialog.SetActive(true);
-        Time.timeScale = 0;
+        if (gameMaster.WorkerCount > 0)
+        {
+            Expedition expedition = Instantiate(expeditionPrefab, expeditionSpawnPoint.position, expeditionSpawnPoint.rotation).GetComponent<Expedition>();
+            expedition.Init(Random.Range(0, 2) == 1 ? Expedition.LootType.Food : Expedition.LootType.Resource, 1, 10, gameMaster);
+            gameMaster.WorkerCount--;
+        }
     }
 }
