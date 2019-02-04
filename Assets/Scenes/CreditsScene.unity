@@ -5671,7 +5671,7 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 1
+  m_Mode: 2
   m_RefreshMode: 1
   m_TimeSlicingMode: 0
   m_Resolution: 128
@@ -5693,7 +5693,8 @@ ReflectionProbe:
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_Importance: 1
-  m_CustomBakedTexture: {fileID: 0}
+  m_CustomBakedTexture: {fileID: 8900000, guid: a858678111d386a4ebc94587aec2506f,
+    type: 3}
 --- !u!4 &1273442478
 Transform:
   m_ObjectHideFlags: 0
@@ -7847,7 +7848,7 @@ GameObject:
   - component: {fileID: 1873708081}
   - component: {fileID: 1873708080}
   - component: {fileID: 1873708086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera (1)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -7901,7 +7902,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1873708085}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
   antialiasingMode: 3
